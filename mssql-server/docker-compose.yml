@@ -7,11 +7,12 @@ x-logging: &logging-conf
     max-file: '10'
 
 services:
-  mssql-server-2019:
+  mssql-server-2019-hajj:
     build: .
     image: mcr.microsoft.com/mssql/server:2019-latest
-    container_name: mssql-server-2019
+    container_name: mssql-server-2019-hajj
     logging: *logging-conf
+    profiles: [ "hajj"]
     ports:
       - 1433:1433
     volumes:
