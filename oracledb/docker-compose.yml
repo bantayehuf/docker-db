@@ -1,0 +1,28 @@
+version: "3.9"
+
+x-logging: &logging-conf
+  driver: json-file
+  options:
+    max-size: '10m'
+    max-file: '10'
+
+services:
+  oracledb19c-onboarding:
+    image: oracledb:19c
+    container_name: oracledb19c-onboarding
+    logging: *logging-conf
+    profiles: [ "onboarding"]
+    environment:
+      ORACLE_PDB: "onboarding"
+      ORACLE_PWD: "OB@ob1234"
+    ports:
+      - "1521:1521"
+      - "5500:5500"
+    volumes:
+      - /ban/data/oracle19c/data:/opt/oracle/oradata
+    networks:
+      - oracledb-network
+
+networks:
+  oracledb-network:
+    name: oracledb-network
