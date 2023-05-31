@@ -149,5 +149,6 @@ connect sys/password@orcl as sysdba
 To download database using wget
 ----------------------------------
 1. Start download on browaser and stop it,
-2. Copy the download link address 
+2. Copy the download link address
+
 wget https://download.oracle.com/otn/linux/oracle19c/190000/LINUX.X64_193000_db_home.zip?AuthParam=1685456052_1a7fea1703125ba0d83162bca20c3cc1 -O LINUX.X64_193000_db_home.zip
