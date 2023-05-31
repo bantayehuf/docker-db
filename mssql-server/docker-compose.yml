@@ -1,0 +1,38 @@
+version: "3.9"
+
+x-logging: &logging-conf
+  driver: json-file
+  options:
+    max-size: '10m'
+    max-file: '10'
+
+services:
+  mssql-server-2019:
+    build: .
+    image: mcr.microsoft.com/mssql/server:2019-latest
+    container_name: mssql-server-2019
+    logging: *logging-conf
+    ports:
+      - 1433:1433
+    volumes:
+      - mssql-server-data:/var/opt/mssql/data
+      - mssql-server-backup:/var/opt/mssql/backup
+    environment:
+      - ACCEPT_EULA=Y
+      - MSSQL_PID=Express
+      - MSSQL_SA_PASSWORD=password
+      - MSSQL_DATA_DIR=/var/opt/mssql/data
+      - MSSQL_LOG_DIR=/var/opt/mssql/log
+      - MSSQL_BACKUP_DIR=/var/opt/mssql/backup
+    networks:
+      - mssql-server-network
+    # restart: always
+      
+
+volumes:
+  mssql-server-data:
+  mssql-server-backup:
+
+networks:
+  mssql-server-network:
+    name: mssql-server-network

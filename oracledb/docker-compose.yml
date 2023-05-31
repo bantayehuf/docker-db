@@ -22,6 +22,8 @@ services:
       - /ban/data/oracle19c/data:/opt/oracle/oradata
     networks:
       - oracledb-network
+    # restart: always
+
 
 networks:
   oracledb-network:
