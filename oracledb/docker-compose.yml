@@ -13,8 +13,8 @@ services:
     logging: *logging-conf
     profiles: [ "onboarding"]
     environment:
-      ORACLE_PDB: "onboarding"
-      ORACLE_PWD: "OB@ob1234"
+      ORACLE_PDB: "database"
+      ORACLE_PWD: "password"
     ports:
       - "1521:1521"
       - "5500:5500"
