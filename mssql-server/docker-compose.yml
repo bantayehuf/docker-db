@@ -9,7 +9,6 @@ x-logging: &logging-conf
 services:
   mssql-server-2019:
     build: .
-    image: mssql-server-2019
     container_name: mssql-server-2019
     logging: *logging-conf
     profiles: [ "mssql"]
