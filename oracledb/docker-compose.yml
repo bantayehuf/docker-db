@@ -19,7 +19,7 @@ services:
       - "1521:1521"
       - "5500:5500"
     volumes:
-      - /ban/data/oracle19c/data:/opt/oracle/oradata
+      - /ban/data/oracle-19c/data:/opt/oracle/oradata
     networks:
       - oracledb-network
     # restart: always
